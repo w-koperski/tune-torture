@@ -27,7 +27,7 @@
 </script>
 
 <div class="mt-6 grid w-full place-items-center gap-2">
-	<h1 class="text-6xl">Roast<span class="dark:text-green-700 text-green-500">ify</span></h1>
+	<h1 class="text-6xl">Tune <span class="dark:text-green-700 text-green-500">Torture</span></h1>
 	<h2 class="text-center text-2xl">{$t('home.subText')}</h2>
 	<div class="grid place-items-center p-4">
 		{#if data.authorized}
