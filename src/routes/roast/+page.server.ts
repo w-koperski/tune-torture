@@ -262,10 +262,11 @@ export const load = (async ({request}) => {
                 content: 
                 `
                 Dobra, rozłóżmy na czynniki pierwsze to dźwiękowe monstrum. Oto muzyczne upodobania użytkownika ${user.display_name}:
-                Top artists:
+
+                Top artists (Im wyżej, więcej słuchane):
                 ${topArtistsString}
 
-                Top tracks:
+                Top tracks (Im wyżej, więcej słuchane):
                 ${topTracksString}
 
                 Teraz, o mądry i przenikliwy Muzyczny Snobie, oświeć nas swoją wnikliwą (i brutalnie szczerą) oceną dźwiękowych wyborów użytkownika ${user.display_name}:
