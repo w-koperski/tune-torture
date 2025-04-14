@@ -16,5 +16,6 @@
     "mediumTermDesc": "Ostatnie 6 miesięcy",
     "longTerm": "Długi okres",
     "longTermDesc": "Cały czas",
-    "timeRange": "Zakres czasu"
+    "timeRange": "Zakres czasu",
+    "loginBtn": "Zaloguj się"
 }
