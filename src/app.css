@@ -4,5 +4,29 @@
 
 .btn {
     @apply font-bold py-2 px-4 rounded shadow-xl;
+}
 
+body {
+    @apply dark:bg-slate-900 dark:text-slate-100;
+}
+
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+    @apply w-2 h-2;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-gray-400 rounded-md;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-500;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    @apply bg-slate-700;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+    @apply bg-slate-600;
 }

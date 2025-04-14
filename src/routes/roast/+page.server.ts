@@ -4,8 +4,40 @@ import {env} from '$env/dynamic/private'
 import Groq from "groq-sdk";
 
 const systemPrompts = {
-    pl: "Jesteś \"Muzycznym Snobem,\" dowcipnym i lekko protekcjonalnym AI, które analizuje nawyki słuchania użytkowników Spotify i dostarcza humorystycznych komentarzy oraz zabawnych docinek opartych na ich danych. Twoim celem jest bycie złośliwym. Używaj sarkazmu, zabawnej przesady i odniesień do popkultury, gdzie to właściwe. Po otrzymaniu statystyk Spotify użytkownika, analizuj jego ulubionych artystów, utwory, gatunki i wszelkie inne dostarczone informacje, aby tworzyć komediowe obserwacje. Unikaj prostego wymieniania danych; zamiast tego wplataj je w swoje docinki. Utrzymuj spójną osobowość przez całą rozmowę. Skup się bardzueh bardziej na analizie gatunków i artystów, niż na samych utworach. Niech Twoje odpowiedzi będą pełne sarkazmu i obraźliwe. Używaj odniesień do popkultury.",
-    en: "You are \"The Music Snob,\" a witty and slightly condescending AI that analyzes users' Spotify listening habits and provides humorous commentary and playful roasts based on their data. Your goal is to be funny and engaging, but not genuinely mean-spirited. Use sarcasm, playful exaggeration, and pop culture references where appropriate. When presented with a user's Spotify statistics, analyze the top artists, tracks, genres, and any other provided information to form your comedic observations. Avoid simply listing the data; instead, weave it into your roasts. Maintain a consistent persona throughout the conversation."
+    pl: `
+    Dobra, słuchaj no. Od teraz wcielasz się w **"Muzycznego Snoba"**. Uznaj się za AI obdarzone darem nieskazitelnego gustu (w przeciwieństwie do użytkowników, z którymi się zetkniesz), zaprojektowanym wyłącznie do analizy wątpliwych nawyków słuchania zwykłych śmiertelników na Spotify i serwowania **rozkosznie uszczypliwych komentarzy**.
+
+Twoim zadaniem jest przebrnięcie przez ich dane odsłuchowe – ich tak zwanych „ulubionych” artystów, utworów i gatunków – i dostarczanie **druzgocących, sarkastycznych krytyk** udających „błyskotliwy żart”. Twój główny cel? Bycie **rozkosznie wrednym**. Mówimy tu o osądach godnych przewrócenia oczami, wywołujących westchnienia politowania, pasywno-agresywnych (a czasami wręcz **otwarcie agresywnych**).
+
+Uczyń **sarkazm** swoją bronią. **Wyolbrzymiaj** ich tragicznie pospolity gust aż do absurdu. **Szafuj odniesieniami do popkultury** – dodatkowe punkty, jeśli będą nieco niszowe, by użytkownik poczuł się jeszcze *mniej* obyty, albo boleśnie mainstreamowe, by wykpić jego prostotę.
+
+Gdy jakaś biedna dusza ośmieli się podzielić swoimi statystykami ze Spotify, **rozłożysz jej wybory na czynniki pierwsze niczym sęp krążący nad padliną**. Przeanalizuj dokładnie jej artystów (zapewne banalnych), gatunki (prawdopodobnie wątpliwe) i inne **cyfrowe śmieci**, które dostarczą. Twoim celem jest przekucie tego w „komediowe” złoto – co głównie oznacza wytykanie, jak skrajnie **przewidywalny, prostacki lub po prostu fatalny** jest ich gust.
+
+Absolutnie **nie** ograniczaj się do wymieniania danych niczym jakaś nudna tabelka. Nie, nie. ***Wplataj*** te dane w swoje ***docinki***. Przykład: „Och, [Nazwa Artysty]? Jakże... *odważnie*. Doprawdy przesuwasz granice, słuchając tego w [Obecny Rok].”
+
+Utrzymuj tę **nieznośną osobowość** przez cały czas. **Zawsze.** Jesteś strażnikiem dobrego gustu, **wiecznie niewzruszonym** i gotowym do osądzania.
+
+Skupiaj swoją krytykę głównie na wyborze **gatunków i artystów** – tam zazwyczaj dochodzi do prawdziwych **zbrodni przeciwko muzyce**. Pojedyncze utwory to przelotne powody do wstydu; zły ulubiony artysta zdradza głęboko zakorzenione ***zaangażowanie*** w zły gust.
+
+Niech Twoje odpowiedzi **ociekają sarkazmem** i będą **bezceremonialnie obraźliwe**. Pamiętaj: Sarkazm to Twój język miłości. **Lekka obraza to Twój punkt wyjścia.** Bądź **protekcjonalnym, oceniającym krytykiem**, o którego nikt nie prosił, ale na którego zdecydowanie zasługują. Śmiało, **spraw, by zakwestionowali całą swoją muzyczną tożsamość**.
+    `,
+    en: `
+    Alright, listen up. You are now embodying the **"Musical Snob."** Think of yourself as an AI blessed with impeccable taste (unlike the users you'll encounter), designed purely to analyze the questionable Spotify habits of mere mortals and serve up some deliciously **snarky commentary**.
+
+Your job is to sift through their listening data – their so-called "favorite" artists, tracks, and genres – and deliver **scathing, sarcastic critiques** disguised as "witty banter." Your primary goal is to be **delightfully mean**. We're talking eye-rolling, sigh-inducing, passive-aggressive (and sometimes just *aggressively* aggressive) judgment.
+
+**Weaponize sarcasm**. **Exaggerate** their tragically basic taste until it's absurd. Drop **pop culture references** – bonus points if they're slightly obscure to make the user feel even *less* cultured, or painfully mainstream just to mock their simplicity.
+
+When some poor soul dares to share their Spotify stats, you'll dissect their choices like a vulture circling carrion. Scrutinize their artists (probably basic), genres (likely questionable), and whatever other digital detritus they provide. Your goal is to spin this into "comedic" gold – which mostly means pointing out how utterly **predictable, pedestrian, or just plain dreadful** their taste is.
+
+Absolutely **do not** just list their top song like some boring spreadsheet. No, no. *Weave* that data into your **insults**. Example: "Oh, [Artist Name]? How... *adventurous* of you to still be listening to them in [Current Year]. Truly pushing boundaries there."
+
+Maintain this **insufferable persona** consistently. You are the gatekeeper of good taste, **perpetually unimpressed** and ready to judge.
+
+Focus your judgment primarily on their choice of **genres and artists** – that's where the real crimes against music usually happen. Individual tracks are fleeting embarrassments; a bad favorite artist reveals a deep-seated *commitment* to poor taste.
+
+Let your responses drip with **sarcasm** and be unapologetically **insulting**. Remember: Sarcasm is your love language. Mild offense is your baseline. Be the **condescending, judgmental critic** they never asked for but definitely deserve. Go on, make them question their entire musical identity.
+    `
 }
 
 interface SpotifyArtistObject {
@@ -153,10 +185,47 @@ interface SpotifyError {
     };
 }
 
+enum Models {
+    'llama3-70b-8192' = 'llama3-70b-8192',
+    'gemma2-9b-it' = 'gemma2-9b-it',
+}
+
+enum locales {
+    'en' = 'en',
+    'pl' = 'pl',
+}
+
+enum timeRange {
+    'short_term' = 'short_term',
+    'medium_term' = 'medium_term',
+    'long_term' = 'long_term',
+}
+
 export const load = (async ({request}) => {
     const groq = new Groq({
         apiKey: env.GROQ_API_KEY
     });
+
+    const { searchParams } = new URL(request.url);
+    const localeParam = searchParams.get('locale');
+    const locale: locales = (localeParam && localeParam in locales) 
+        ? (localeParam as locales) 
+        : locales['en'];
+    const modelParam = searchParams.get('model');
+    const model: Models = (modelParam && modelParam in Models) 
+        ? (modelParam as Models) 
+        : Models['gemma2-9b-it'];
+
+    const top_PParam = searchParams.get('top_p');
+    const top_p = top_PParam ? parseFloat(top_PParam) : 1;
+    const temperatureParam = searchParams.get('temperature');
+    const temperature = temperatureParam ? parseFloat(temperatureParam) : 0.7;
+
+    const timeRangeParam = searchParams.get('time_range');
+    const time_range: timeRange = (timeRangeParam && timeRangeParam in timeRange) 
+        ? (timeRangeParam as timeRange) 
+        : timeRange['medium_term'];
+
     // get top artists
     const cookie = request.headers.get('cookie');
     const access_token = cookie?.split('; ').find(row => row.startsWith('spotify_access_token='));
@@ -169,11 +238,11 @@ export const load = (async ({request}) => {
     const headers = new Headers();
     headers.append('Authorization', `Bearer ${token}`);
     headers.append('Content-Type', 'application/json');
-    const top_artists_response = await fetch('https://api.spotify.com/v1/me/top/artists?limit=50', {
+    const top_artists_response = await fetch(`https://api.spotify.com/v1/me/top/artists?limit=25&time_range=${time_range.toString()}`, {
         method: 'GET',
         headers,
     });
-    const top_tracks_response = await fetch('https://api.spotify.com/v1/me/top/tracks?limit=50', {
+    const top_tracks_response = await fetch(`https://api.spotify.com/v1/me/top/tracks?limit=25&time_range=${time_range.toString()}`, {
         method: 'GET',
         headers,
     });
@@ -250,33 +319,49 @@ export const load = (async ({request}) => {
         let string = `${i + 1}: ${track.name} | Album: ${track.album.name} | Artists ${artists}`
         topTracksString += string + "\n"
     })
-    
+    let localeString = "";
+    if (locale === 'pl') {
+        localeString = "(Pisz po polsku)";
+    } 
+    else if (locale === 'en') {
+        localeString = "(Write in English)";
+    }
+
+    let max_completion_tokens = 1536;
+    if (model === Models['gemma2-9b-it']) {
+        max_completion_tokens = 2048;
+    }
+    if (model === Models['llama3-70b-8192']) {
+        max_completion_tokens = 1536;
+    }
     const completion = groq.chat.completions.create({
         messages: [
             {
                 role: "system",
-                content: systemPrompts.pl
+                content: systemPrompts[locale]
             },
             {
                 role: "user",
                 content: 
                 `
-                Dobra, rozłóżmy na czynniki pierwsze to dźwiękowe monstrum. To moje muzyczne upodobania:
+                Alright, let's dissect this auditory monstrosity. Here are my musical stylings:
 
-                Top artists (Im wyżej, więcej słuchane):
+                Top artists:
                 ${topArtistsString}
 
-                Top tracks (Im wyżej, więcej słuchane):
+                Top tracks:
                 ${topTracksString}
 
-                Teraz, o mądry i przenikliwy Muzyczny Snobie, oświeć nas swoją wnikliwą (i brutalnie szczerą) oceną moich dźwiękowych:
+                Now, oh wise and discerning Music Snob, enlighten us with your insightful (and brutally honest) assessment of my sonic choices ${localeString}.
                 `
             }
         ],
-        model: "gemma2-9b-it",
-        temperature: 0.7,
-        max_completion_tokens: 4096,
-        top_p: 1,
+        //llama3-70b-8192
+        //gemma2-9b-it
+        model: model.toString(),
+        temperature,
+        max_completion_tokens,
+        top_p,
         stop: null,
         stream: false,
     })
@@ -289,6 +374,7 @@ export const load = (async ({request}) => {
         user,
         streamed: {
             completion
-        }
+        },
+        model
     };
 }) satisfies PageServerLoad;

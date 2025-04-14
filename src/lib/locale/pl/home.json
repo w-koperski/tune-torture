@@ -1,0 +1,20 @@
+{
+    "subText": "Pozwól AI roastować Twoje gusta",
+    "selectModel": "Wybierz model:",
+    "gemmaDescription": "szybszy, mniej dokładny, ale łatwiej dostępny",
+    "llamaDescription": "wolniejszy, bardziej dokładny, ale trudniej dostępny",
+    "selectLanguage": "Wybierz język:",
+    "englishDesc": "bardziej dokładny",
+    "polishDesc": "mniej dokładny",
+    "roastBtn": "Roastuj mnie!",
+    "roastBtnLoading": "Roastowanie...",
+    "advancedBtn": "Zaawansowane",
+    "temperature": "Temperatura",
+    "shortTerm": "Krótki okres",
+    "shortTermDesc": "Ostatnie 4 tygodnie",
+    "mediumTerm": "Średni okres",
+    "mediumTermDesc": "Ostatnie 6 miesięcy",
+    "longTerm": "Długi okres",
+    "longTermDesc": "Cały czas",
+    "timeRange": "Zakres czasu"
+}

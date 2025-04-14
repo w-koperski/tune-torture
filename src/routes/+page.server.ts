@@ -32,8 +32,19 @@ export const load = async ({ request }) => {
             authorized: false
         }
     }
+
+    // preffered locale, either en or pl
+    const locale = request.headers.get('Accept-Language');
+    let preferred_locale = 'en';
+    if (locale) {
+        const locales = locale.split(',');
+        if (locales.length > 0) {
+            preferred_locale = locales[0].split('-')[0];
+        }
+    }
     return {
-        authorized: access_token != null
+        authorized: access_token != null,
+        preferred_locale
     }
 
 }
