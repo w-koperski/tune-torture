@@ -236,7 +236,7 @@ export const load = (async ({request}) => {
 
     let topArtistsString = "", topTracksString = "";
     top_artists.items.forEach((artist, i) => {
-        let string = `${i + 1}: ${artist.name} | Genres: ${artist.genres.join(", ")} | Popularity: ${artist.popularity}`
+        let string = `${i + 1}: ${artist.name} | Genres: ${artist.genres.join(", ")}`
         topArtistsString += string + "\n";
     })
     top_tracks.items.forEach((track, i) => {
