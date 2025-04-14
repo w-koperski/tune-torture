@@ -285,7 +285,6 @@ export const load = (async ({request}) => {
     const top_artists: SpotifyTopArtistsResponse = await top_artists_response.json();
     const top_tracks: SpotifyTopTracksResponse = await top_tracks_response.json();
     const following_artists: SpotifyFollowingArtistsResponse = await following_artists_response.json();
-    console.log("test")
     // get user info
     const user_response = await fetch('https://api.spotify.com/v1/me', {
         method: 'GET',
