@@ -2,6 +2,24 @@
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
+
+	let output: HTMLDivElement | null = $state(null);
+	$effect(() => {
+		if (output) {
+			// format * and ** and other things ai might use
+			output.innerHTML = output.innerHTML
+				.replace(/(\*{1,2})(.*?)\1/g, (match, p1, p2) => {
+					if (p1.length === 1) {
+						return `<em>${p2}</em>`;
+					} else if (p1.length === 2) {
+						return `<strong>${p2}</strong>`;
+					}
+					return match;
+				})
+				.replace(/`([^`]+)`/g, '<code>$1</code>')
+				.replace(/~~(.*?)~~/g, '<del>$1</del>'); // Added strikethrough formatting
+		}
+	});
 </script>
 
 <div class="space-y-8">
@@ -55,7 +73,10 @@
 	{#await data.streamed.completion}
 		<div class="min-h-64 w-full rounded border border-gray-500 bg-gray-300 p-6 py-2"></div>
 	{:then data}
-		<div class="prose min-h-64 !max-w-[none] rounded border border-gray-500 p-6 py-2">
+		<div
+			class="prose min-h-64 !max-w-[none] rounded border border-gray-500 p-6 py-2"
+			bind:this={output}
+		>
 			{data.choices[0]?.message?.content}
 		</div>
 	{:catch e}
